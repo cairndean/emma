@@ -1,0 +1,286 @@
+/* Spinner for loading effect */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #391986;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    display: none;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide the affirmation text while loading */
+.loading .affirmation {
+    display: none;
+}
+
+/* Mobile phone frame */
+.phone-frame {
+    width: 375px;
+    height: 812px;
+    border: 16px solid #333;
+    border-radius: 36px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    margin: 50px auto;
+    background-color: rgb(39, 4, 97); 
+    position: relative; /* This ensures elements inside are positioned relative to this frame */
+}
+
+.phone-frame::before {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 5px;
+    background-color: #333;
+    border-radius: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.phone-frame::after {
+    content: "";
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-color: #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Mobile-first base layout */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    position: relative;
+}
+
+header, .features, .hero, footer {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Responsive typography */
+.hero h1 {
+    font-size: 2rem;
+}
+
+
+
+/* Menu Icon */
+.menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    color: #fff; 
+}
+
+/* Initially hide the navigation menu */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%; /* Position it directly below the menu icon */
+    left: 0;
+    background-color: #f4f4f9;
+    padding: 10px;
+    width: 100%; /* Ensure it stays within the phone-frame width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 100; /* Ensure it's above other elements */
+}
+
+/* Show dropdown menu when menu-active class is applied */
+.menu-active .dropdown-menu {
+    display: block;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu ul li {
+    padding: 10px;
+    text-align: center;
+}
+
+.dropdown-menu ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.dropdown-menu ul li a:hover {
+    background-color: #18054e;
+    color: white;
+}
+
+/* Responsive features layout */
+.features {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for a grid layout */
+    justify-content: space-between; /* Ensure there is space between tiles */
+    padding: 5px; /* Reduce padding to shrink the section */
+
+}
+
+/* Feature tile */
+.feature-tile {
+    flex-basis: 100%; /* Make each tile smaller to fit 2x2 within the frame */
+    margin-bottom: 10px; /* Reduce margin between tiles */
+    padding: 0px; /* Smaller padding inside the tiles */
+    background-color: #f9f9f9;
+    border-radius: 5px; /* Slightly rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the content */
+    font-size: 0.4rem; /* Reduce font size for smaller text */
+    line-height: 1.0; /* Adjust line height for smaller text */
+}
+
+/* Adjust for larger screens */
+@media (min-width: 768px) {
+    .feature-tile {
+        flex-basis: 45%; /* Keep the layout smaller on larger screens too */
+    }
+}
+
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-size: cover;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Affirmation display */
+.affirmation {
+    font-size: 2rem; /* Larger text for maximum prominence */
+    font-weight: bold; /* Bold text for emphasis */
+    margin: 40px auto; /* Increase margin for spacing and centering */
+    padding: 30px 40px; /* More padding to create space inside the bubble */
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4); /* Gradient background from pink to peach */
+    color: #fff; /* White text for contrast */
+    border-radius: 50px; /* Smoother, more rounded bubble effect */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for more depth */
+    text-align: center; /* Center-align the text */
+    display: block; /* Take up more space as a block-level element */
+    max-width: 90%; /* Keep the width constrained but slightly larger */
+    line-height: 1.6; /* Adjust line height for readability */
+    font-family: 'Georgia', serif; /* Elegant serif font for a classy, clean look */
+    background-clip: padding-box; /* Ensure transparency works with padding */
+    letter-spacing: 1px; /* Subtle letter spacing for readability */
+    transition: all 0.3s ease-in-out; /* Add transition for a smoother visual appearance */
+    position: relative; /* Required for positioning the sparkle effect */
+    overflow: hidden; /* Hide overflow to keep sparkle effect within bounds */
+}
+
+.affirmation::before {
+    content: ''; /* Empty content for the pseudo-element */
+    position: absolute; /* Position it absolutely */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the element */
+    height: 100%; /* Full height of the element */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 30%); /* Sparkle effect */
+    opacity: 0.6; /* Slightly transparent to look more natural */
+    pointer-events: none; /* Ensure it doesn’t block clicks */
+    z-index: 1; /* Ensure it appears above the background */
+    animation: sparkle 2s infinite; /* Animate the sparkle effect */
+}
+
+@keyframes sparkle {
+    0% { background-position: 0 0; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0 0; }
+}
+
+
+/* CTA buttons */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 20px 10px;
+    background-color: #ff9a9e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #ff9a9e;
+}
+
+
+
+.feature-tile h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.feature-tile p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer styling */
+footer {
+    background-color: #100328;
+    position: absolute;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marketing & PR Affirmations</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+    <div class="phone-frame"> <!-- Start of phone frame -->
+
+        <!-- Header -->
+        <header>
+            <div class="logo">PoweR Affirmations</div>
+            <div class="tagline">Elevate Your Marketing Mindset</div>
+            <div class="menu-icon">☰</div>
+            <!-- Navigation Menu (Dropdown) -->
+            <nav class="dropdown-menu">
+                <ul>
+                    <li><a href="{{ url_for('index') }}">Home</a></li>
+                    <li><a href="{{ url_for('features') }}">Features</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            
+            <div class="affirmation">I am a master of building authentic connections.</div>
+            <div class="spinner"></div> <!-- Spinner element added -->
+            <div>
+                <a href="#" class="cta-button">Next Affirmation</a>
+            </div>
+
+        </section>
+
+    </div> <!-- End of phone frame -->
+
+    <!-- External JavaScript -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
